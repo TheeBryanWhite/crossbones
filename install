@@ -252,7 +252,7 @@ wp post update 2 --post_name=core-style-guide
 wp option update show_on_front page
 wp option update page_on_front 2
 
-# Get our style guide HTML from Sean's pen
+# Get our style guide HTML from Bryan's pen
 # https://codepen.io/TheeBryanWhite/pen/VzKLJZ
 curl -fs https://codepen.io/TheeBryanWhite/pen/VzKLJZ.html -o "corestyles.txt"
 wp post update 2 corestyles.txt
@@ -267,54 +267,54 @@ sed -i '' "s/example.dev/$HOSTNAME/g" gulpfile.js
 sed -i '' "s/ProjectName/$THEMEDIR/g" package.json
 
 # Ask to create Bitbucket repo
-if ask "Do you want to create a Bitbucket repository?"; then
+# if ask "Do you want to create a Bitbucket repository?"; then
 
-    # Ask for Bitbucket repo name
-    echo -n "New repository name: "
-    read REPONAME
-    while [[ -z "$REPONAME" ]]; do
-    	echo -n "New repository name: "
-        read REPONAME
-    done
+#     # Ask for Bitbucket repo name
+#     echo -n "New repository name: "
+#     read REPONAME
+#     while [[ -z "$REPONAME" ]]; do
+#     	echo -n "New repository name: "
+#         read REPONAME
+#     done
 
-    # Ask for Bitbucket username
-    echo -n "Your Bitbucket Username: "
-    read BITBUCKETUSER
-    while [[ -z "$BITBUCKETUSER" ]]; do
-    	echo -n "Your Bitbucket Username: "
-        read BITBUCKETUSER
-    done
+#     # Ask for Bitbucket username
+#     echo -n "Your Bitbucket Username: "
+#     read BITBUCKETUSER
+#     while [[ -z "$BITBUCKETUSER" ]]; do
+#     	echo -n "Your Bitbucket Username: "
+#         read BITBUCKETUSER
+#     done
     
-    # Ask for Bitbucket password
-    echo -n "Your Bitbucket Password: "
-    read BITBUCKETPASS
-    while [[ -z "$BITBUCKETPASS" ]]; do
-      echo -n "Your Bitbucket Password: "
-        read BITBUCKETPASS
-    done
+#     # Ask for Bitbucket password
+#     echo -n "Your Bitbucket Password: "
+#     read BITBUCKETPASS
+#     while [[ -z "$BITBUCKETPASS" ]]; do
+#       echo -n "Your Bitbucket Password: "
+#         read BITBUCKETPASS
+#     done
     
-    # Ask for Bitbucket Team Name
-    echo -n "Your Bitbucket Team Name (as found in your team's Bitbucket URL): "
-    read BITBUCKETTEAM
-    while [[ -z "$BITBUCKETTEAM" ]]; do
-      echo -n "Your Bitbucket Team Name (as found in your team's Bitbucket URL): "
-        read BITBUCKETTEAM
-    done
+#     # Ask for Bitbucket Team Name
+#     echo -n "Your Bitbucket Team Name (as found in your team's Bitbucket URL): "
+#     read BITBUCKETTEAM
+#     while [[ -z "$BITBUCKETTEAM" ]]; do
+#       echo -n "Your Bitbucket Team Name (as found in your team's Bitbucket URL): "
+#         read BITBUCKETTEAM
+#     done
     
-    # Create Bitbucket repo
-    echo "Creating new Bitbucket repository..."
-    curl -X POST -v -u $BITBUCKETUSER:$BITBUCKETPASS https://api.bitbucket.org/2.0/repositories/$BITBUCKETTEAM/$REPONAME -H "Content-Type: application/json" -d '{"is_private": true}'
+#     # Create Bitbucket repo
+#     echo "Creating new Bitbucket repository..."
+#     curl -X POST -v -u $BITBUCKETUSER:$BITBUCKETPASS https://api.bitbucket.org/2.0/repositories/$BITBUCKETTEAM/$REPONAME -H "Content-Type: application/json" -d '{"is_private": true}'
 
-    # Ask to create initial commit and push
-    if ask "Do you want to create an initial commit and push?"; then
-        echo "Creating initial commit..."
-        git add .
-        git commit -m "Inital commit" || true
-        echo "Pushing to your new Bitbucket repository..."
-        git push --set-upstream origin master || true
-    fi
+#     # Ask to create initial commit and push
+#     if ask "Do you want to create an initial commit and push?"; then
+#         echo "Creating initial commit..."
+#         git add .
+#         git commit -m "Inital commit" || true
+#         echo "Pushing to your new Bitbucket repository..."
+#         git push --set-upstream origin master || true
+#     fi
 
-fi
+# fi
 
 # Ask to run npm install
 if ask "Do you want to install Gulp dependencies?"; then
