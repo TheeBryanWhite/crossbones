@@ -4,6 +4,7 @@ Crossbones is a base theme for Wordpress that installs all the good stuff you'll
 
 Pre-requisites:
 
+- LAMP
 - [WP-CLI](https://wp-cli.org/)
 - [gulp.js](https://gulpjs.com/)
 - [MySQL](https://www.mysql.com/)
