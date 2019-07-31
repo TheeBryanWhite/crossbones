@@ -1,10 +1,11 @@
 # Crossbones
 
-Crossbones is a base theme for Wordpress that installs all the good stuff you'll need to get rolling.
+Crossbones is a base theme for Wordpress that installs all the good stuff you'll need to get rolling. It utilizes a Gulp.js workflow to streamline the entire build process.
 
 Pre-requisites:
 
 - [WP-CLI](https://wp-cli.org/)
+- [gulp.js](https://gulpjs.com/)
 - [MySQL](https://www.mysql.com/)
 - [curl](https://curl.haxx.se/)
 - [git](https://git-scm.com/)
